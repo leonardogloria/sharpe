@@ -1,0 +1,59 @@
+<section class="hero is-fullheight is-dark is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered">
+          <div class="column is-4 is-offset-4">
+            <h1 class="title">
+              Pesquisa de Satisfação
+            </h1>
+            <form (submit)="enviaPesquisa($event)" >
+              <div class="box">
+                <label class="label">Nome</label>
+                <p class="control">
+                  <input name="nome" disabled class="input" type="text" value="{{pesquisa.nome}}" placeholder="John Smith">
+                </p>
+                <label class="label">Email</label>
+                <p class="control">
+                  <input name="email" disabled class="input" type="text" value="{{pesquisa.email}}" placeholder="jsmith@example.org">
+                </p>
+                <label class="label">Curso</label>
+                <p class="control">
+                  <input name="curso" disabled class="input" type="text" placeholder="Curso" value="{{pesquisa.curso}}">
+                </p>
+              
+                <hr>
+                <label class="label">Qual nota você dá ao treinamento?</label>
+                <div class="field is-vcentered ">
+                  
+                  <p class="control is-vcentered ">
+                      <label *ngFor="let number of [5,6,7,8,9,10]" class="radio is-vcentered" >
+                        <input  value="{{number}}"  type="radio" name="question" [(ngModel)]='pesquisa.nota'><font color="black">{{number}}</font>
+                    </label>
+                      
+                  </p>
+                </div>
+                
+                <label class="label">Nos conte o que você achou do curso(opcional)...</label>
+                <p class="control">
+                    <textarea  required="required" 
+                              name="comentarios" 
+                              [(ngModel)]="pesquisa.comentario" maxlength="300" class="textarea" placeholder="Máximo de 300 caracteres,beleza?"></textarea>
+                </p>
+                
+                <hr>
+                <div class="text-center">
+                <p class="control">
+                  <button class="button is-primary">Enviar!</button>
+                  
+                </p>
+                </div>
+              </div>
+            </form>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
